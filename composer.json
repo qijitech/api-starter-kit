@@ -1,0 +1,29 @@
+{
+  "name": "qijitech/api-starter-kit",
+  "version": "0.0.1",
+  "type": "library",
+  "description": "api starter kit",
+  "keywords": [
+    "laravel 5.2",
+    "api",
+    "starter kit"
+  ],
+  "homepage": "https://github.com/qijitech/api-starter-kit",
+  "authors": [
+    {
+      "name": "YuGang Yang",
+      "email": "smartydroid@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "illuminate/support": "5.2.*",
+    "dingo/api": "1.0.*@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Api\\StarterKit\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
