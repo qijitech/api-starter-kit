@@ -1,6 +1,5 @@
 {
   "name": "qijitech/api-starter-kit",
-  "version": "0.0.1",
   "type": "library",
   "description": "api starter kit",
   "keywords": [
@@ -18,6 +17,7 @@
   "require": {
     "php": ">=5.5.9",
     "illuminate/support": "5.2.*",
+    "tymon/jwt-auth": "dev-master",
     "dingo/api": "1.0.*@dev"
   },
   "autoload": {
@@ -25,5 +25,6 @@
       "Api\\StarterKit\\": "src/"
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
