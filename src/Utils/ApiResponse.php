@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: YuGang Yang
- * Date: 1/8/16
- * Time: 9:09 PM
- */
-
 namespace Api\StarterKit\Utils;
 
 

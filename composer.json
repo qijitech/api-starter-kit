@@ -16,9 +16,7 @@
   ],
   "require": {
     "php": ">=5.5.9",
-    "illuminate/support": "5.2.*",
-    "tymon/jwt-auth": "dev-master",
-    "dingo/api": "1.0.*@dev"
+    "illuminate/support": "5.2.*"
   },
   "autoload": {
     "psr-4": {

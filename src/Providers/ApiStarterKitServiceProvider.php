@@ -1,5 +1,5 @@
 <?php
-namespace App\Shared\Providers;
+namespace Api\StarterKit\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
