@@ -30,6 +30,17 @@ class ApiStarterKitServiceProvider extends ServiceProvider
             ->getAdapter()
             ->getFractal()
             ->setSerializer(new ApiSerializer);
+
+        $this->registerProvider();
+    }
+
+    /**
+     * register providers
+     */
+    private function registerProvider()
+    {
+        $this->app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
+        $this->app->register(\Dingo\Api\Provider\LaravelServiceProvider::class);
     }
 
     /**
