@@ -1,6 +1,7 @@
 <?php
 namespace Api\StarterKit\Providers;
 
+use Api\StarterKit\Serializer\ApiSerializer;
 use Illuminate\Support\ServiceProvider;
 
 class ApiStarterKitServiceProvider extends ServiceProvider
@@ -14,6 +15,7 @@ class ApiStarterKitServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishConfigs();
+
     }
 
     /**
@@ -23,6 +25,11 @@ class ApiStarterKitServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // set api serializer
+        $this->app['api.transformer']
+            ->getAdapter()
+            ->getFractal()
+            ->setSerializer(new ApiSerializer);
     }
 
     /**
