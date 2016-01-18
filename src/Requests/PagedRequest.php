@@ -3,6 +3,7 @@ namespace Api\StarterKit\Requests;
 
 use Api\StarterKit\Utils\Constants;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Pagination\Paginator;
 
 class PagedRequest extends FormRequest
 {
