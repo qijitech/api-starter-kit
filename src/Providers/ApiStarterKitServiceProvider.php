@@ -16,6 +16,9 @@ class ApiStarterKitServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishConfigs();
+
+        // register common validator
+        $this->registerValidator();
     }
 
     /**
@@ -26,9 +29,6 @@ class ApiStarterKitServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerProvider();
-
-        // register common validator
-        $this->registerValidator();
 
         // set api serializer
         $this->app['api.transformer']
