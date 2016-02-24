@@ -10,45 +10,52 @@ use Illuminate\Routing\Controller as BaseController;
 class ApiController extends BaseController
 {
 
-    use ApiValidatesRequests;
-    use ApiResponse;
+  use ApiValidatesRequests;
+  use ApiResponse;
 
-    /**
-     * @param Request $request
-     * @return mixed
-     */
-    public function getSinceId(Request $request)
-    {
-        return $request->get(Constants::getParameterKeySinceId());
-    }
+  /**
+   * @param Request $request
+   * @return mixed
+   */
+  public function getSinceId(Request $request)
+  {
+    return $request->get(Constants::getParameterKeySinceId());
+  }
 
-    /**
-     * @param Request $request
-     * @return mixed
-     */
-    public function getMaxId(Request $request)
-    {
-        return $request->get(Constants::getParameterKeyMaxId());
-    }
+  /**
+   * @param Request $request
+   * @return mixed
+   */
+  public function getMaxId(Request $request)
+  {
+    return $request->get(Constants::getParameterKeyMaxId());
+  }
 
-    /**
-     * 获取当前页面大小
-     * @param Request $request
-     * @return mixed
-     */
-    public function getPageSize(Request $request)
-    {
-        return $request->get(Constants::getParameterKeyPageSize(), Constants::getDefaultLimit());
-    }
+  /**
+   * 获取当前页面大小
+   * @param Request $request
+   * @return mixed
+   */
+  public function getPageSize(Request $request)
+  {
+    return $request->get(Constants::getParameterKeyPageSize(), Constants::getDefaultLimit());
+  }
 
-    /**
-     * 获取当前页
-     * @param Request $request
-     * @return mixed
-     */
-    public function getPage(Request $request)
-    {
-        return $request->get(Constants::getParameterKeyPage(), Constants::getDefaultPage());
-    }
+  /**
+   * 获取当前页
+   * @param Request $request
+   * @return mixed
+   */
+  public function getPage(Request $request)
+  {
+    $page = $request->get(Constants::getParameterKeyPage(), Constants::getDefaultPage());
+
+    // force current page to $page
+    Paginator::currentPageResolver(function () use ($page) {
+      return $page;
+    });
+
+    return $page;
+  }
 
 }
