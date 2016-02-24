@@ -31,10 +31,12 @@ class ApiStarterKitServiceProvider extends ServiceProvider
     $this->registerProvider();
 
     // set api serializer
-    $this->app['api.transformer']
-      ->getAdapter()
-      ->getFractal()
-      ->setSerializer(new ApiSerializer);
+    if (config('api.transformer')) {
+      $this->app['api.transformer']
+        ->getAdapter()
+        ->getFractal()
+        ->setSerializer(new ApiSerializer);
+    }
   }
 
   /**
