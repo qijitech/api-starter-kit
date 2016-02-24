@@ -48,14 +48,7 @@ class ApiController extends BaseController
    */
   public function getPage(Request $request)
   {
-    $page = $request->get(Constants::getParameterKeyPage(), Constants::getDefaultPage());
-
-    // force current page to $page
-    Paginator::currentPageResolver(function () use ($page) {
-      return $page;
-    });
-
-    return $page;
+    return $request->get(Constants::getParameterKeyPage(), Constants::getDefaultPage());
   }
 
 }

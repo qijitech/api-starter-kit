@@ -43,7 +43,7 @@ class ApiStarterKitServiceProvider extends ServiceProvider
   private function registerProvider()
   {
     $this->app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
-    $this->app->register(\Dingo\Api\Provider\LumenServiceProvider::class);
+    $this->app->register(\Dingo\Api\Provider\LaravelServiceProvider::class);
   }
 
   /**
