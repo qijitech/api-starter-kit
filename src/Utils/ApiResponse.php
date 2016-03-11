@@ -82,6 +82,16 @@ trait ApiResponse
   }
 
   /**
+   * @param $message
+   * @return mixed
+   */
+  public function respondSuccess($message = 'Success')
+  {
+    $this->setStatusCode(Response::HTTP_OK)
+      ->response()->error($message, $this->getStatusCode());
+  }
+
+  /**
    * @param $location
    * @return mixed
    */
