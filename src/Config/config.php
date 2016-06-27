@@ -1,12 +1,13 @@
 <?php
 
 return [
-    'ParameterAccountId' => 'account_id',
-    'ParameterToken'     => 'token',
-    'ParameterPage'      => 'page',
-    'ParameterPageSize'  => 'page_size',
-    'ParameterMaxId'     => 'max-id',
-    'ParameterSinceId'   => 'since-id',
-    'DefaultPage'        => 1,
-    'DefaultLimit'       => 20,
+  'ParameterAccountId' => 'account_id',
+  'ParameterUserId'    => 'user_id',
+  'ParameterToken'     => 'token',
+  'ParameterPage'      => 'page',
+  'ParameterPageSize'  => 'page_size',
+  'ParameterMaxId'     => 'max_id',
+  'ParameterSinceId'   => 'since_id',
+  'DefaultPage'        => 1,
+  'DefaultLimit'       => 20,
 ];
