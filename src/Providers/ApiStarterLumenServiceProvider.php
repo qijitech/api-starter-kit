@@ -6,10 +6,10 @@ use Api\StarterKit\Serializer\ApiSerializer;
 use Dingo\Api\Auth\Provider\JWT as DingoJWTProvider;
 use Dingo\Api\Provider\LumenServiceProvider as DingoLumenServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use Mnabialek\LaravelSqlLogger\Providers\ServiceProvider as LaravelSqlLoggerProvider;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
 use Tymon\JWTAuth\Providers\LumenServiceProvider as JWTLumenServiceProvider;
-
 
 class ApiStarterLumenServiceProvider extends ServiceProvider
 {
@@ -38,6 +38,7 @@ class ApiStarterLumenServiceProvider extends ServiceProvider
 
     $this->app->register(JWTLumenServiceProvider::class);
     $this->app->register(DingoLumenServiceProvider::class);
+    $this->app->register(LaravelSqlLoggerProvider::class);
 
     // set api serializer
     if (config('api.transformer')) {

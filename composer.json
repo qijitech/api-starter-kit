@@ -19,7 +19,8 @@
     "illuminate/support": "5.2.*",
     "illuminate/database": "5.2.*",
     "dingo/api": "dev-master",
-    "tymon/jwt-auth": "dev-develop"
+    "tymon/jwt-auth": "dev-develop",
+    "mnabialek/laravel-sql-logger": "dev-master"
   },
   "autoload": {
     "psr-4": {
