@@ -18,8 +18,8 @@
     "php": ">=5.5.9",
     "illuminate/support": "5.2.*",
     "illuminate/database": "5.2.*",
-    "dingo/api": "v1.0.0-beta3",
-    "tymon/jwt-auth": "1.0.0-alpha.2"
+    "dingo/api": "dev-master",
+    "tymon/jwt-auth": "dev-develop"
   },
   "autoload": {
     "psr-4": {
