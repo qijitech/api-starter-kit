@@ -21,10 +21,14 @@ class ApiStarterLumenServiceProvider extends ServiceProvider
   public function register()
   {
     $this->app->configure('config');
+    $this->app->configure('consts');
     $this->app->configure('auth');
 
     $path = realpath(__DIR__ . '/../Config/lumen_auth.php');
     $this->mergeConfigFrom($path, 'auth');
+
+    $path = realpath(__DIR__ . '/../Config/config.php');
+    $this->mergeConfigFrom($path, 'consts');
 
     //
     $this->app->withFacades();
