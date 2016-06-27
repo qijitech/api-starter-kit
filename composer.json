@@ -25,9 +25,6 @@
     "tymon/jwt-auth": "dev-develop",
     "mnabialek/laravel-sql-logger": "dev-master"
   },
-  "require-dev": {
-    "illuminate/foundation": "5.2.*"
-  },
   "autoload": {
     "psr-4": {
       "Api\\StarterKit\\": "src/"

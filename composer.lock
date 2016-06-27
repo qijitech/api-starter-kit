@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b215faddbcff9ce10aa3b688b8c8380d",
-    "content-hash": "d36ce436033834a776e1e81efb1f19ee",
+    "hash": "3ac6a8aaf99b75d9a3442ab28481aa24",
+    "content-hash": "ad7ceb18eecc4642a93201518c0c9b66",
     "packages": [
         {
             "name": "dingo/api",
@@ -620,6 +620,50 @@
             "time": "2016-05-23 14:30:21"
         },
         {
+            "name": "illuminate/pagination",
+            "version": "v5.2.37",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/pagination.git",
+                "reference": "55024b578ed3608ad6184bc4e4d7a79f03fb9a48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/pagination/zipball/55024b578ed3608ad6184bc4e4d7a79f03fb9a48",
+                "reference": "55024b578ed3608ad6184bc4e4d7a79f03fb9a48",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Pagination\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "The Illuminate Pagination package.",
+            "homepage": "http://laravel.com",
+            "time": "2016-05-30 02:43:18"
+        },
+        {
             "name": "illuminate/pipeline",
             "version": "v5.2.37",
             "source": {
@@ -824,6 +868,56 @@
             "description": "The Illuminate Support package.",
             "homepage": "http://laravel.com",
             "time": "2016-05-30 02:40:53"
+        },
+        {
+            "name": "illuminate/validation",
+            "version": "v5.2.37",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/validation.git",
+                "reference": "70b089ce508229b446c85e0143e48dc0eed90c15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/validation/zipball/70b089ce508229b446c85e0143e48dc0eed90c15",
+                "reference": "70b089ce508229b446c85e0143e48dc0eed90c15",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "5.2.*",
+                "illuminate/contracts": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "php": ">=5.5.9",
+                "symfony/http-foundation": "2.8.*|3.0.*",
+                "symfony/translation": "2.8.*|3.0.*"
+            },
+            "suggest": {
+                "illuminate/database": "Required to use the database presence verifier (5.2.*)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Validation\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "The Illuminate Validation package.",
+            "homepage": "http://laravel.com",
+            "time": "2016-06-03 13:17:37"
         },
         {
             "name": "league/fractal",
@@ -1818,16 +1912,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v3.1.1",
+            "version": "v3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "b36e79d7bbbfa4a7e9708335082b3eba2263d356"
+                "reference": "2b0aacaa613c0ec1ad8046f972d8abdcb19c1db7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/b36e79d7bbbfa4a7e9708335082b3eba2263d356",
-                "reference": "b36e79d7bbbfa4a7e9708335082b3eba2263d356",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/2b0aacaa613c0ec1ad8046f972d8abdcb19c1db7",
+                "reference": "2b0aacaa613c0ec1ad8046f972d8abdcb19c1db7",
                 "shasum": ""
             },
             "require": {
@@ -1851,7 +1945,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -1878,7 +1972,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-14 11:18:07"
+            "time": "2016-06-06 11:33:26"
         },
         {
             "name": "tymon/jwt-auth",
