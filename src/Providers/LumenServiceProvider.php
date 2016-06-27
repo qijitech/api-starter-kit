@@ -1,6 +1,4 @@
-<?php
-
-namespace Api\StarterKit\Providers;
+<?php namespace Api\StarterKit\Providers;
 
 use Dingo\Api\Provider\LumenServiceProvider as DingoLumenServiceProvider;
 use Mnabialek\LaravelSqlLogger\Providers\ServiceProvider as LaravelSqlLoggerProvider;

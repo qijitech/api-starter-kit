@@ -1,5 +1,4 @@
-<?php
-namespace Api\StarterKit\Providers;
+<?php namespace Api\StarterKit\Providers;
 
 use Dingo\Api\Provider\LaravelServiceProvider as DingoLaravelServiceProvider;
 use Tymon\JWTAuth\Providers\LaravelServiceProvider as JWTLaravelServiceProvider;

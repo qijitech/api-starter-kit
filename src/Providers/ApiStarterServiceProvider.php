@@ -1,6 +1,4 @@
-<?php
-
-namespace Api\StarterKit\Providers;
+<?php namespace Api\StarterKit\Providers;
 
 use Api\StarterKit\Serializer\ApiSerializer;
 use Dingo\Api\Auth\Provider\JWT as DingoJWTProvider;

@@ -1,5 +1,4 @@
-<?php
-namespace Api\StarterKit\Transformers;
+<?php namespace Api\StarterKit\Transformers;
 
 use League\Fractal\TransformerAbstract;
 
