@@ -1,4 +1,4 @@
-<?php namespace Api\StarterKit\Enums;
+<?php namespace Api\StarterKit\Entity;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
