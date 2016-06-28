@@ -1,4 +1,4 @@
-<?php namespace Api\StarterKit\Entity;
+<?php namespace Api\StarterKit\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
