@@ -56,6 +56,15 @@ trait ApiResponse
    * @param string $message
    * @return mixed
    */
+  public function errorUnauthorized($message = 'Unauthorized')
+  {
+    $this->response()->errorUnauthorized($message);
+  }
+
+  /**
+   * @param string $message
+   * @return mixed
+   */
   public function respondInternal($message = 'Internal Server Error!')
   {
     $this->response()->errorInternal($message);
