@@ -4,7 +4,7 @@ class Constants
 {
 
   /**
-   * Get the since-id parameter key
+   * Get the since_id parameter key
    * @return mixed
    */
   public static function getParameterKeySinceId()
@@ -13,7 +13,7 @@ class Constants
   }
 
   /**
-   * Get the max-id parameter key
+   * Get the max_id parameter key
    * @return mixed
    */
   public static function getParameterKeyMaxId()
@@ -70,8 +70,8 @@ class Constants
    * get the default page size
    * @return mixed
    */
-  public static function getDefaultLimit()
+  public static function getDefaultPageSize()
   {
-    return config('consts.DefaultLimit');
+    return config('consts.DefaultPageSize');
   }
 }
