@@ -8,6 +8,15 @@ abstract class Enum
   /**
    * @return array
    */
+  public static function getValues()
+  {
+    $class = new ReflectionClass(get_called_class());
+    return array_values($class->getConstants());
+  }
+
+  /**
+   * @return array
+   */
   public static function getKeys()
   {
     $class = new ReflectionClass(get_called_class());
