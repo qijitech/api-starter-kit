@@ -9,5 +9,5 @@ return [
   'ParameterMaxId'     => 'max_id',
   'ParameterSinceId'   => 'since_id',
   'DefaultPage'        => 1,
-  'DefaultPageSize'       => 20,
+  'DefaultPageSize'    => 20,
 ];

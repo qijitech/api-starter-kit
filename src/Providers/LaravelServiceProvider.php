@@ -25,6 +25,9 @@ class LaravelServiceProvider extends ApiStarterServiceProvider
    */
   public function register()
   {
+    $path = realpath(__DIR__ . '/../Config/jwt.php');
+    $this->mergeConfigFrom($path, 'jwt');
+
     $this->registerProvider();
 
     parent::register();
@@ -35,8 +38,8 @@ class LaravelServiceProvider extends ApiStarterServiceProvider
    */
   private function registerProvider()
   {
-    $this->app->register(DingoLaravelServiceProvider::class);
     $this->app->register(JWTLaravelServiceProvider::class);
+    $this->app->register(DingoLaravelServiceProvider::class);
   }
 
   /**

@@ -32,6 +32,7 @@ abstract class ApiStarterServiceProvider extends ServiceProvider
     $this->app['api.auth']->extend('jwt', function ($app) {
       return new DingoJWTProvider($app['Tymon\JWTAuth\JWTAuth']);
     });
+
   }
 
   private function registerValidator()
