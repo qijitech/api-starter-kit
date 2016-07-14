@@ -1,5 +1,6 @@
 <?php namespace Api\StarterKit\Providers;
 
+use Api\StarterKit\Console\KeyGenerateCommand;
 use Dingo\Api\Provider\LumenServiceProvider as DingoLumenServiceProvider;
 use Mnabialek\LaravelSqlLogger\Providers\ServiceProvider as LaravelSqlLoggerProvider;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -39,6 +40,22 @@ class LumenServiceProvider extends ApiStarterServiceProvider
     $this->app->register(DingoLumenServiceProvider::class);
     $this->app->register(LaravelSqlLoggerProvider::class);
 
+    $this->registerKeyGenerateCommand();
+    $this->commands('command.key.generate');
+
     parent::register();
   }
+
+  /**
+   * Register the Artisan command.
+   *
+   * @return void
+   */
+  protected function registerKeyGenerateCommand()
+  {
+    $this->app->singleton('command.key.generate', function () {
+      return new KeyGenerateCommand;
+    });
+  }
+
 }
