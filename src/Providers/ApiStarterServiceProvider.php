@@ -1,12 +1,16 @@
 <?php namespace Api\StarterKit\Providers;
 
 use Api\StarterKit\Serializer\ApiSerializer;
+use Api\StarterKit\Utils\ApiResponse;
 use Dingo\Api\Auth\Provider\JWT as DingoJWTProvider;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 abstract class ApiStarterServiceProvider extends ServiceProvider
 {
+
+  use ApiResponse;
 
   /**
    * Bootstrap the application services.
@@ -33,6 +37,14 @@ abstract class ApiStarterServiceProvider extends ServiceProvider
       return new DingoJWTProvider($app['Tymon\JWTAuth\JWTAuth']);
     });
 
+    $this->registerExceptionHandler();
+  }
+
+  private function registerExceptionHandler()
+  {
+    $this->app['api.exception']->register(function (ModelNotFoundException $exception) {
+      return $this->respondNotFound($exception->getMessage());
+    });
   }
 
   private function registerValidator()
