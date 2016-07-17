@@ -1,5 +1,6 @@
 <?php namespace Api\StarterKit\Providers;
 
+use Api\StarterKit\Exception\ResourceDisabledException;
 use Api\StarterKit\Serializer\ApiSerializer;
 use Api\StarterKit\Utils\ApiResponse;
 use Dingo\Api\Auth\Provider\JWT as DingoJWTProvider;
@@ -44,6 +45,10 @@ abstract class ApiStarterServiceProvider extends ServiceProvider
   {
     $this->app['api.exception']->register(function (ModelNotFoundException $exception) {
       return $this->respondNotFound($exception->getMessage());
+    });
+
+    $this->app['api.exception']->register(function (ResourceDisabledException $exception) {
+      return $this->respondError($exception->getMessage(), $exception->getStatusCode());
     });
   }
 

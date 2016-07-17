@@ -45,6 +45,17 @@ trait ApiResponse
 
   /**
    * @param string $message
+   * @param $statusCode
+   * @return mixed
+   */
+  public function respondError($message, $statusCode)
+  {
+    $this->response()->error($message, $statusCode);
+  }
+
+
+  /**
+   * @param string $message
    * @return mixed
    */
   public function respondForbidden($message = 'Forbidden!')
