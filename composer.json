@@ -22,7 +22,7 @@
     "illuminate/pagination": "5.2.*",
     "illuminate/validation": "5.2.*",
     "dingo/api": "dev-master",
-    "tymon/jwt-auth": "dev-master",
+    "tymon/jwt-auth": "dev-develop",
     "mnabialek/laravel-sql-logger": "dev-master"
   },
   "autoload": {
