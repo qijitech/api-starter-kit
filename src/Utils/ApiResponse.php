@@ -139,6 +139,15 @@ trait ApiResponse
   }
 
   /**
+   * @param $data
+   * @return mixed
+   */
+  public function respondWithArray($data)
+  {
+    return $this->response()->array($data);
+  }
+
+  /**
    * @param Collection $data
    * @param TransformerAbstract $transformer
    * @return mixed
