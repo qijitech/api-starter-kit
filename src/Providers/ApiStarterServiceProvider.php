@@ -11,8 +11,6 @@ use Illuminate\Support\ServiceProvider;
 abstract class ApiStarterServiceProvider extends ServiceProvider
 {
 
-  use ApiResponse;
-
   /**
    * Bootstrap the application services.
    *
@@ -44,11 +42,11 @@ abstract class ApiStarterServiceProvider extends ServiceProvider
   private function registerExceptionHandler()
   {
     $this->app['api.exception']->register(function (ModelNotFoundException $exception) {
-      return $this->respondNotFound($exception->getMessage());
+      return respondNotFound($exception->getMessage());
     });
 
     $this->app['api.exception']->register(function (ResourceDisabledException $exception) {
-      return $this->respondError($exception->getMessage(), $exception->getStatusCode());
+      return respondError($exception->getMessage(), $exception->getStatusCode());
     });
   }
 

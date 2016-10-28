@@ -1,7 +1,6 @@
 <?php
 
 use Api\StarterKit\Transformers\SimpleTransformer;
-use Api\StarterKit\Utils\Constants;
 use Dingo\Api\Exception\ValidationHttpException;
 use Dingo\Api\Http\Response;
 use Illuminate\Contracts\Pagination\Paginator;
@@ -11,6 +10,96 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\Validator;
 use League\Fractal\TransformerAbstract;
+
+
+if (!function_exists('parameterKeyMaxId')) {
+  /**
+   * Get the since_id parameter key
+   * @return mixed
+   */
+  function parameterKeyMaxId()
+  {
+    return config('consts.ParameterSinceId');
+  }
+}
+
+if (!function_exists('parameterKeyMaxId')) {
+  /**
+   * Get the max_id parameter key
+   * @return mixed
+   */
+  function parameterKeyMaxId()
+  {
+    return config('consts.ParameterMaxId');
+  }
+}
+
+if (!function_exists('parameterKeyToken')) {
+
+  /**
+   * Get the token parameter key
+   * @return mixed
+   */
+  function parameterKeyToken()
+  {
+    return config('consts.ParameterToken');
+  }
+}
+
+if (!function_exists('parameterKeyAccountId')) {
+  /**
+   * Get the account id parameter key
+   * @return mixed
+   */
+  function parameterKeyAccountId()
+  {
+    return config('consts.ParameterAccountId');
+  }
+}
+
+if (!function_exists('parameterKeyPage')) {
+  /**
+   * Get the page parameter key
+   * @return mixed
+   */
+  function parameterKeyPage()
+  {
+    return config('consts.ParameterPage');
+  }
+}
+
+if (!function_exists('parameterKeyPageSize')) {
+  /*
+ * Get the page size parameter key
+ * @return mixed
+ */
+  function parameterKeyPageSize()
+  {
+    return config('consts.ParameterPageSize');
+  }
+}
+
+if (!function_exists('defaultPage')) {
+  /**
+   * Get the default page
+   * @return mixed
+   */
+  function defaultPage()
+  {
+    return config('consts.DefaultPage');
+  }
+}
+
+if (!function_exists('defaultPageSize')) {
+  /**
+   * get the default page size
+   * @return mixed
+   */
+  function defaultPageSize()
+  {
+    return config('consts.DefaultPageSize');
+  }
+}
 
 if (!function_exists('request')) {
 
@@ -52,7 +141,7 @@ if (!function_exists('pageSize')) {
    */
   function pageSize()
   {
-    return inputGet(Constants::getParameterKeyPageSize(), Constants::getDefaultPageSize());
+    return inputGet(parameterKeyPageSize(), defaultPageSize());
   }
 }
 
@@ -63,7 +152,7 @@ if (!function_exists('currentPage')) {
    */
   function currentPage()
   {
-    return inputGet(Constants::getParameterKeyPage(), Constants::getDefaultPage());
+    return inputGet(parameterKeyPage(), defaultPage());
   }
 }
 
@@ -77,14 +166,14 @@ if (!function_exists('pageParams')) {
 if (!function_exists('maxId')) {
   function maxId()
   {
-    return inputGet(Constants::getParameterKeyMaxId());
+    return inputGet(parameterKeyMaxId());
   }
 }
 
 if (!function_exists('sinceId')) {
   function sinceId()
   {
-    return inputGet(Constants::getParameterKeySinceId());
+    return inputGet(parameterKeySinceId());
   }
 }
 
@@ -102,7 +191,7 @@ if (!function_exists('pageSize')) {
    */
   function pageSize()
   {
-    return inputGet(Constants::getParameterKeyPage(), Constants::getDefaultPage());
+    return inputGet(parameterKeyPage(), defaultPage());
   }
 }
 
@@ -117,16 +206,6 @@ if (!function_exists('user()')) {
   function user()
   {
     return app('Dingo\Api\Auth\Auth')->user();
-  }
-}
-
-if (!function_exists('keysExists')) {
-  function keysExists($array, $keys)
-  {
-    foreach ((array)$keys as $key) {
-      if (!static::exists($array, $key)) return false;
-    }
-    return true;
   }
 }
 
@@ -281,7 +360,7 @@ if (!function_exists('respondWithCollection')) {
    * @param TransformerAbstract|null $transformer
    * @return Response
    */
-  function respondWithItem(Collection $data, TransformerAbstract $transformer = null)
+  function respondWithCollection(Collection $data, TransformerAbstract $transformer = null)
   {
     return response()->collection($data, getTransformer($transformer));
   }
