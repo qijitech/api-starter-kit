@@ -6,7 +6,6 @@ use Dingo\Api\Http\Response;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\Validation\Factory;
 use Illuminate\Database\Query\Builder;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\Validator;
 use League\Fractal\TransformerAbstract;
@@ -412,10 +411,10 @@ if (!function_exists('formatValidationErrors')) {
 }
 
 if (!function_exists('validate')) {
-  function validate(Request $request, array $rules, array $messages = [], array $customAttributes = [])
+  function validate(array $rules, array $messages = [], array $customAttributes = [])
   {
     /** @var Validator $validator */
-    $validator = validationFactory()->make($request->all(), $rules, $messages, $customAttributes);
+    $validator = validationFactory()->make(request()->all(), $rules, $messages, $customAttributes);
     if ($validator->fails()) {
       throw new ValidationHttpException(formatValidationErrors($validator));
     }
