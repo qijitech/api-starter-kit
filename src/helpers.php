@@ -10,13 +10,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Validation\Validator;
 use League\Fractal\TransformerAbstract;
 
-
-if (!function_exists('parameterKeyMaxId')) {
+if (!function_exists('parameterKeySinceId')) {
   /**
    * Get the since_id parameter key
    * @return mixed
    */
-  function parameterKeyMaxId()
+  function parameterKeySinceId()
   {
     return config('consts.ParameterSinceId');
   }
@@ -262,11 +261,11 @@ if (!function_exists('trans_choice')) {
 
 // Response func
 
-if (!function_exists('response')) {
+if (!function_exists('dingoResponse')) {
   /**
-   * @return Dingo\Api\Http\Response\Factory
+   * @return \Dingo\Api\Http\Response\Factory
    */
-  function response()
+  function dingoResponse()
   {
     return app('Dingo\Api\Http\Response\Factory');
   }
@@ -279,7 +278,7 @@ if (!function_exists('respondError')) {
    */
   function respondError($message, $statusCode)
   {
-    response()->error($message, $statusCode);
+    dingoResponse()->error($message, $statusCode);
   }
 }
 
@@ -293,7 +292,7 @@ if (!function_exists('respondSuccess')) {
 if (!function_exists('respondForbidden')) {
   function respondForbidden($message = 'Forbidden')
   {
-    response()->errorForbidden($message);
+    respondError($message, 403);
   }
 }
 
@@ -307,14 +306,7 @@ if (!function_exists('errorInternal')) {
 if (!function_exists('errorUnauthorized')) {
   function errorUnauthorized($message = 'Unauthorized')
   {
-    response()->errorUnauthorized($message);
-  }
-}
-
-if (!function_exists('errorUnauthorized')) {
-  function errorUnauthorized($message = 'Unauthorized')
-  {
-    response()->errorUnauthorized($message);
+    respondError($message, 401);
   }
 }
 
@@ -328,7 +320,7 @@ if (!function_exists('respondNotFound')) {
 if (!function_exists('respondCreated')) {
   function respondCreated($location = null, $content = null)
   {
-    return response()->created($location, $content);
+    return dingoResponse()->created($location, $content);
   }
 }
 
@@ -342,14 +334,14 @@ if (!function_exists('respondUnprocessable')) {
 if (!function_exists('respondWithItem')) {
   function respondWithItem($data, TransformerAbstract $transformer = null)
   {
-    return response()->item($data, getTransformer($transformer));
+    return dingoResponse()->item($data, getTransformer($transformer));
   }
 }
 
 if (!function_exists('respondWithArray')) {
   function respondWithArray($data)
   {
-    return response()->array($data);
+    return dingoResponse()->array($data);
   }
 }
 
@@ -361,7 +353,7 @@ if (!function_exists('respondWithCollection')) {
    */
   function respondWithCollection(Collection $data, TransformerAbstract $transformer = null)
   {
-    return response()->collection($data, getTransformer($transformer));
+    return dingoResponse()->collection($data, getTransformer($transformer));
   }
 }
 
@@ -373,7 +365,8 @@ if (!function_exists('respondWithPagination')) {
    */
   function respondWithPagination(Paginator $paginator, TransformerAbstract $transformer = null)
   {
-    return response()->paginator($paginator, getTransformer($transformer));
+//    return dingoResponse()->paginator($paginator, getTransformer($transformer));
+    return $paginator;
   }
 }
 
@@ -445,7 +438,7 @@ if (!function_exists('morphPage')) {
   /**
    * @param Builder $builder
    * @param array $columns
-   * @return Builder
+   * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
    */
   function morphPage($builder, $columns = ['*'])
   {
