@@ -429,8 +429,7 @@ if (!function_exists('morphKey')) {
     } else if ($sinceId) {
       $builder->where($key, '>', $sinceId);
     }
-    $builder->take(pageSize());
-    return $builder;
+    return $builder->take(pageSize());
   }
 }
 
