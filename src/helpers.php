@@ -285,7 +285,11 @@ if (!function_exists('respondError')) {
 if (!function_exists('respondSuccess')) {
   function respondSuccess($message = 'Success')
   {
-    return (new Response($message))->setStatusCode(Response::HTTP_OK);
+    $data = [
+      'message'     => $message,
+      'status_code' => Response::HTTP_OK,
+    ];
+    return (new Response($data))->setStatusCode(Response::HTTP_OK);
   }
 }
 
