@@ -193,13 +193,6 @@ if (!function_exists('pageSize')) {
   }
 }
 
-if (!function_exists('useDefaultLanguageId')) {
-  function useDefaultLanguageId()
-  {
-    return request()->header('X-Use-Default-Language');
-  }
-}
-
 if (!function_exists('user()')) {
   function user()
   {
