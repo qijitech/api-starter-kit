@@ -357,13 +357,11 @@ if (!function_exists('respondWithCollection')) {
 if (!function_exists('respondWithPagination')) {
   /**
    * @param Paginator $paginator
-   * @param TransformerAbstract|null $transformer
    * @return Response
    */
-  function respondWithPagination(Paginator $paginator, TransformerAbstract $transformer = null)
+  function respondWithPagination(Paginator $paginator)
   {
-//    return dingoResponse()->paginator($paginator, getTransformer($transformer));
-    return $paginator;
+    return array_except($paginator->toArray(), ['next_page_url', 'prev_page_url', 'from', 'to']);
   }
 }
 
