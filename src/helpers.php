@@ -438,7 +438,6 @@ if (!function_exists('morphPage')) {
    */
   function morphPage($builder, $columns = ['*'])
   {
-    return $builder->forPage(currentPage())
-      ->paginate(pageSize(), $columns);
+    return $builder->forPage(currentPage(), pageSize())->select($columns);
   }
 }
