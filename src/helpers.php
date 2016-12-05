@@ -264,6 +264,19 @@ if (!function_exists('dingoResponse')) {
   }
 }
 
+if (!function_exists('respond')) {
+  /**
+   * @param mixed $content
+   * @param $statusCode
+   * @return \Symfony\Component\HttpFoundation\Response
+   */
+  function respond($content = [], $statusCode)
+  {
+    $content['status_code'] = $statusCode;
+    return (new Response($content))->setStatusCode($statusCode);
+  }
+}
+
 if (!function_exists('respondError')) {
   /**
    * @param $message
