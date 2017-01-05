@@ -407,7 +407,10 @@ if (!function_exists('formatValidationErrors')) {
    */
   function formatValidationErrors(Validator $validator)
   {
-    return $validator->errors()->getMessages();
+//    return $validator->errors()->getMessages();
+    $messages = $validator->errors()->getMessages();
+    $firstMessage = array_get($messages, array_keys($messages)[0]);
+    return array_get($firstMessage, '0');
   }
 }
 
@@ -417,7 +420,8 @@ if (!function_exists('validate')) {
     /** @var Validator $validator */
     $validator = validationFactory()->make(request()->all(), $rules, $messages, $customAttributes);
     if ($validator->fails()) {
-      throw new ValidationHttpException(formatValidationErrors($validator));
+      respondUnprocessable(formatValidationErrors($validator));
+//      throw new ValidationHttpException(formatValidationErrors($validator));
     }
   }
 }
