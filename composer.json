@@ -3,8 +3,8 @@
   "type": "library",
   "description": "api starter kit",
   "keywords": [
-    "laravel 5.2",
-    "lumen 5.2",
+    "laravel 5.5",
+    "lumen 5.5",
     "api",
     "starter kit"
   ],
@@ -17,12 +17,12 @@
   ],
   "require": {
     "php": ">=5.5.9",
-    "illuminate/support": "5.2.*",
-    "illuminate/database": "5.2.*",
-    "illuminate/pagination": "5.2.*",
-    "illuminate/validation": "5.2.*",
+    "illuminate/support": "5.5.*",
+    "illuminate/database": "5.5.*",
+    "illuminate/pagination": "5.5.*",
+    "illuminate/validation": "5.5.*",
     "dingo/api": "dev-master",
-    "tymon/jwt-auth": "dev-develop",
+    "tymon/jwt-auth": "dev-master",
     "mnabialek/laravel-sql-logger": "dev-master"
   },
   "autoload": {
