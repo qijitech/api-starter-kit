@@ -128,7 +128,12 @@ if (!function_exists('inputGet')) {
    */
   function inputGet($key, $default = null)
   {
-    return request()->get($key, $default);
+    $value = request()->get($key, $default);
+    if (is_null($value)) {
+      $data = inputAll();
+      return array_get($data, $key, $default);
+    }
+    return $value;
   }
 }
 
