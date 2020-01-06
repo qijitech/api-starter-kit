@@ -143,7 +143,13 @@ if (!function_exists('pageSize')) {
    */
   function pageSize()
   {
-    return inputGet(parameterKeyPageSize(), defaultPageSize());
+    $pageSize = inputGet(parameterKeyPage(), defaultPage());
+
+    if ($pageSize > 1000) {
+      $pageSize = 1000;
+    }
+
+    return $pageSize;
   }
 }
 
