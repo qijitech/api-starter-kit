@@ -143,7 +143,7 @@ if (!function_exists('pageSize')) {
    */
   function pageSize()
   {
-    $pageSize = inputGet(parameterKeyPage(), defaultPage());
+    $pageSize = inputGet(parameterKeyPageSize(), defaultPageSize());
 
     if ($pageSize > 1000) {
       $pageSize = 1000;
@@ -192,12 +192,12 @@ if (!function_exists('idParams')) {
   }
 }
 
-if (!function_exists('pageSize')) {
+if (!function_exists('page')) {
   /**
    * 获取当前页
    * @return mixed
    */
-  function pageSize()
+  function page()
   {
     return inputGet(parameterKeyPage(), defaultPage());
   }
