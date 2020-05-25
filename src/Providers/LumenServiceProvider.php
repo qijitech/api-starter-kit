@@ -38,7 +38,7 @@ class LumenServiceProvider extends ApiStarterServiceProvider
 
     $this->app->register(JWTLumenServiceProvider::class);
     $this->app->register(DingoLumenServiceProvider::class);
-    $this->app->register(LaravelSqlLoggerProvider::class);
+    //$this->app->register(LaravelSqlLoggerProvider::class);
 
     $this->registerKeyGenerateCommand();
     $this->commands('command.key.generate');
